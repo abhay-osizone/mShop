@@ -1,0 +1,46 @@
+<template>
+  <div>
+    <v-card-title class="grey darken-3 white--text pa-3">
+      <span class="subtitle-1">Order</span>
+      <v-spacer />
+        <div class="mr-2">
+          <v-text-field
+          dense
+          flat
+          outlined
+          solo-inverted
+          clearable
+          hide-details
+          prepend-inner-icon="mdi-magnify"
+          label="Search order"
+          class="hidden-sm-and-down"
+        />
+        </div>
+      <v-btn height="40" depressed color="primary" @click="navigateToForm()">
+        <v-icon left>mdi-export</v-icon>Export
+      </v-btn>
+    </v-card-title>
+    <v-card outlined dark tile max-height="100%" max-width="auto">
+      <v-card-text class="pa-0">
+        <ProductList/>
+      </v-card-text>
+    </v-card>
+  </div>
+</template>
+
+<script>
+  import ProductList from '@/components/Product/ProductList';
+  export default {
+    components: {
+      ProductList,
+    },
+    data: () => ({
+
+    }),
+    methods:{
+      navigateToForm(){
+        this.$router.push('/admin/new-product');
+      }
+    }
+  }
+</script>
